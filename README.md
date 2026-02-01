@@ -1,12 +1,13 @@
 ## Laterno
 以拉特蘭風格為主題的部落格網站，開放給所有有興趣的人使用。
+<img width="1306" height="872" alt="image" src="https://github.com/user-attachments/assets/a6f37770-a66b-4f55-9351-169c46a1bc3b" />
 
 ### Goal
 找回手寫體驗，僅能在概念階段時使用LLM...等生成式工具協作，最後進入專案的code與任何setup必須要自己清楚知道寫了什麼，這項限制是對自我提升的約束。
 
 ### 前置
 ```
-npm install ######
+npm create ######
 ```
 
 ### 專案結構
