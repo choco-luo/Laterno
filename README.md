@@ -1,38 +1,15 @@
-# Laterno
+## Laterno
+以拉特蘭風格為主題的部落格網站，開放給所有有興趣的人使用。
 
-This template should help get you started developing with Vue 3 in Vite.
+### Goal
+找回手寫體驗，僅能在概念階段時使用LLM...等生成式工具協作，最後進入專案的code與任何setup必須要自己清楚知道寫了什麼，這項限制是對自我提升的約束。
 
-## Recommended IDE Setup
-
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+### 自己建立
+```
+npm install ######
 ```
 
-### Compile and Hot-Reload for Development
+### 專案結構
+Vue 3
 
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+<待補中...>
