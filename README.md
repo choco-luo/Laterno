@@ -1,3 +1,5 @@
+### <尚未動工>
+
 ## Laterno
 以拉特蘭風格為主題的部落格網站，開放給所有有興趣的人使用。
 <img width="1306" height="872" alt="image" src="https://github.com/user-attachments/assets/a6f37770-a66b-4f55-9351-169c46a1bc3b" />
@@ -13,4 +15,4 @@ npm create ######
 ### 專案結構
 Vue 3
 
-<待補中...>
+<待補充...>
