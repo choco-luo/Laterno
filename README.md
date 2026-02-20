@@ -16,6 +16,6 @@ npm create ######
 ### 專案結構
 Vue 3
 
-Astro
+Nuxt 4
 
 <待補充...>
