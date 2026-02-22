@@ -4,10 +4,10 @@
 <p align="left">
   <img src="https://img.shields.io/badge/Laterno-20B2AA?style=for-the-badge" alt="demo-site"/>
   <a href="https://astro.build/">
-  <img src="https://img.shields.io/badge/Astro-CDB4DB?style=for-the-badge" alt="astro-website"/>
+    <img src="https://img.shields.io/badge/Astro-CDB4DB?style=for-the-badge" alt="astro-website"/>
   </a>
   <a href="https://astro.build/">
-  <img src="https://img.shields.io/badge/Vue 3-B5E48C?style=for-the-badge" alt="vue-website"/>
+    <img src="https://img.shields.io/badge/Vue 3-B5E48C?style=for-the-badge" alt="vue-website"/>
   </a>
 </p>
 
