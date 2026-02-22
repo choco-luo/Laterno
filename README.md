@@ -1,5 +1,5 @@
 # 🐳Laterno
-靜態部落格，使用![Astro](https://astro.build/)製作。
+靜態部落格，使用[Astro](https://astro.build/)製作。
 
 以海洋為主題的部落格網站，開放給所有有興趣的人使用。
 ![Mexicoreefinsuranceimage](https://github.com/user-attachments/assets/31cf22d0-07cb-41e5-af89-ba8e1041bd10)
