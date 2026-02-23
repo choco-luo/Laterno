@@ -11,8 +11,7 @@
   </a>
 </p>
 
-![Mexicoreefinsuranceimage](https://github.com/user-attachments/assets/31cf22d0-07cb-41e5-af89-ba8e1041bd10)
-> 暫時預覽使用的圖片來源: https://www.nature.org/en-us/
+<img width="1920" height="1200" alt="laterno_concept_art" src="https://github.com/user-attachments/assets/80d1ea42-130b-4b8a-8e81-36bfc7baa902" />
 
 ## 🪸功能
 - [ ] 文章發表
