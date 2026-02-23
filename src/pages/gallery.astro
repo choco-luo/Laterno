@@ -1,0 +1,79 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const GALLERY_IMAGES = [
+  "https://images.unsplash.com/photo-1769671926606-fef1e790185d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWVwJTIwYmx1ZSUyMG9jZWFuJTIwd2F0ZXIlMjBzdXJmYWNlJTIwbWluaW1hbGlzdHxlbnwxfHx8fDE3NzAzNDY3MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  "https://images.unsplash.com/photo-1760039894970-eb66a3633c5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxodW1wYmFjayUyMHdoYWxlJTIwdW5kZXJ3YXRlciUyMGRhcmslMjBibHVlfGVufDF8fHx8MTc3MDM0NjcxN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+  "https://images.unsplash.com/photo-1694661641480-d4e76d6bead3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb2xvcmZ1bCUyMGNvcmFsJTIwcmVlZiUyMGJyaWdodHxlbnwxfHx8fDE3NzAzNDY3MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  "https://images.unsplash.com/photo-1768719791701-5ac17daabec7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwbGFzdGljJTIwYm90dGxlJTIwZmxvYXRpbmclMjBpbiUyMG9jZWFufGVufDF8fHx8MTc3MDM0NjcxOHww&ixlib=rb-4.1.0&q=80&w=1080",
+  "https://images.unsplash.com/photo-1730157172027-bdec9c68c1b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdXJmZXIlMjBzaXR0aW5nJTIwb24lMjBib2FyZCUyMHN1bnNldHxlbnwxfHx8fDE3NzAzNDY3MTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+  "https://images.unsplash.com/photo-1763784436885-df5f21ceeabe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiaW9sdW1pbmVzY2VudCUyMGplbGx5ZmlzaCUyMGRhcmt8ZW58MXx8fHwxNzcwMzQ2NzE4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+  "https://images.unsplash.com/photo-1606914163446-8cfd024d6a4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMGxpZ2h0aG91c2UlMjBjbGlmZiUyMG9jZWFufGVufDF8fHx8MTc3MDM0NjcxOHww&ixlib=rb-4.1.0&q=80&w=1080",
+  "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1582967788606-a171f1080ca8?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1483683804023-6acd49a052f5?auto=format&fit=crop&q=80&w=1000",
+  "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&q=80&w=1000"
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Gallery - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+        <style>
+            .masonry-grid {
+                column-count: 1;
+                column-gap: 1.5rem;
+            }
+            @media (min-width: 640px) {
+                .masonry-grid {
+                    column-count: 2;
+                }
+            }
+            @media (min-width: 1024px) {
+                .masonry-grid {
+                    column-count: 3;
+                }
+            }
+            .masonry-item {
+                break-inside: avoid;
+                margin-bottom: 1.5rem;
+            }
+        </style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="container mx-auto px-6 max-w-6xl py-12 md:py-20">
+                <div class="text-center mb-16 animate-fade-in-down">
+                    <h1 class="text-4xl md:text-5xl font-bold font-serif text-slate-900 mb-4">蔚藍視界</h1>
+                    <p class="text-slate-600 max-w-2xl mx-auto">
+                        每一次快門，都是與海洋的無聲對話。這裡是精選的攝影作品集，紀錄了從熱帶珊瑚礁到極地冰洋的色彩。
+                    </p>
+                </div>
+
+                <div class="masonry-grid">
+                    {GALLERY_IMAGES.map((image) => (
+                        <div class="masonry-item group relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300">
+                            <img
+                                src={image}
+                                alt="Gallery Item"
+                                class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105 block"
+                            />
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                                <button class="bg-white/90 backdrop-blur text-slate-900 px-4 py-2 rounded-full font-medium text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 cursor-pointer">
+                                    View
+                                </button>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
