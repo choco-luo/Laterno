@@ -14,7 +14,7 @@
 ![Mexicoreefinsuranceimage](https://github.com/user-attachments/assets/31cf22d0-07cb-41e5-af89-ba8e1041bd10)
 > 暫時預覽使用的圖片來源: https://www.nature.org/en-us/
 
-## 🪸功能 <尚未完全開始>
+## 🪸功能
 - [ ] 文章發表
 - [ ] 自定義文章Tag
 - [ ] 自定追蹤喜愛的海洋生物
