@@ -3,6 +3,22 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const AUTHOR = {
+  name: "Choco Luo",
+  role: "海洋攝影師 / 前端工程師",
+  bio: "生於海島，長於海邊。過去十年，我帶著相機潛入世界各地的深藍，試圖記錄下海洋最真實的呼吸聲。這裡是我的數位日誌，紀錄著那些在水下 30 米的靜謐時刻。",
+  location: "目前駐點：蘭嶼, 台灣",
+  stats: { posts: 142, followers: "8.5k" }
+};
+
+const CATEGORIES = [
+  { name: "潛水日誌", count: 42 },
+  { name: "水下攝影", count: 28 },
+  { name: "海洋保育", count: 15 },
+  { name: "島嶼生活", count: 36 },
+  { name: "裝備評測", count: 12 },
+];
 ---
 
 <!doctype html>
@@ -12,38 +28,161 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	</head>
 	<body>
 		<Header />
-		<main>
-			<h1>🌊 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+        <header class="relative h-[60vh] md:h-[70vh] w-full overflow-hidden flex items-end pb-20 justify-center">
+            <div class="absolute inset-0 z-0">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent z-10"></div>
+                <img src="https://images.unsplash.com/photo-1769671926606-fef1e790185d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkZWVwJTIwYmx1ZSUyMG9jZWFuJTIwd2F0ZXIlMjBzdXJmYWNlJTIwbWluaW1hbGlzdHxlbnwxfHx8fDE3NzAzNDY3MTh8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="Ocean Surface" class="w-full h-full object-cover" />
+            </div>
+    
+            <div class="relative z-20 text-center text-white px-4 max-w-3xl mx-auto animate-fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4 font-serif">
+                    紀錄深藍色的靜謐
+                </h1>
+                <p class="text-slate-200 text-lg md:text-xl font-light">
+                    一位海洋攝影師的視覺日記與保育隨筆
+                </p>
+            </div>
+        </header>
+    
+        <!-- 主要內容區塊 -->
+        <div class="container mx-auto px-6 max-w-6xl -mt-16 relative z-30 pb-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <aside class="lg:col-span-4 space-y-8 order-1 lg:order-2">
+                    
+                    {/* 個人檔案區塊 */}
+                    <div class="bg-white rounded-2xl p-8 shadow-lg shadow-slate-200/50">
+                        <div class="flex flex-col items-center text-center">
+                            <div class="relative mb-6">
+                                <div class="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-md">
+                                    <img src="https://images.unsplash.com/vector-1740629145770-fdbf92aaed9a?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Kai" class="w-full h-full object-cover" />
+                                </div>
+                                <div class="absolute bottom-0 right-0 bg-cyan-500 p-1.5 rounded-full border-2 border-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-800 mb-1">{AUTHOR.name}</h3>
+                            <p class="text-cyan-600 text-xs font-bold uppercase tracking-widest mb-4">{AUTHOR.role}</p>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6 font-light">
+                                {AUTHOR.bio}
+                            </p>
+                            
+                            <div class="w-full border-t border-slate-100 pt-6 flex justify-around mb-6">
+                                <div class="text-center">
+                                    <span class="block text-lg font-bold text-slate-800">{AUTHOR.stats.posts}</span>
+                                    <span class="text-xs text-slate-400 uppercase">Posts</span>
+                                </div>
+                                <div class="text-center">
+                                    <span class="block text-lg font-bold text-slate-800">{AUTHOR.stats.followers}</span>
+                                    <span class="text-xs text-slate-400 uppercase">Fans</span>
+                                </div>
+                            </div>
+    
+                            <div class="flex gap-3 w-full">
+                                <a href="/contact" class="flex-1 py-2 bg-slate-800 text-white rounded-lg text-sm font-medium hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                    聯絡我
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    {/* 海洋狀況的Placeholder */}
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white shadow-lg relative overflow-hidden border border-slate-700/50">
+                        <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-cyan-500/10 rounded-full blur-xl"></div>
+                        <div class="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/10 rounded-full blur-xl"></div>
+                        
+                        <h4 class="font-bold mb-6 flex items-center gap-2 relative z-10 text-slate-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-400"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+                            今日海況
+                        </h4>
+                        
+                        <div class="space-y-4 relative z-10">
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="text-slate-400 text-sm font-medium">浪況 Swell</span>
+                                <span class="font-bold text-white text-lg">0.8m</span>
+                            </div>
+                            <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                                <span class="text-slate-400 text-sm font-medium">水溫 Temp</span>
+                                <span class="font-bold text-white text-lg">26°C</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-slate-400 text-sm font-medium">能見度 Vis</span>
+                                <span class="font-bold text-white text-lg">25m+</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 pt-2 text-xs text-slate-500 flex justify-between items-center">
+                            <span>Lanyu, Taiwan</span>
+                            <span class="opacity-75">Updated: 10m ago</span>
+                        </div>
+                    </div>
+
+                    {/* 文章分類自定Tag的區塊 */}
+                    <div class="bg-white rounded-2xl p-6 shadow-sm">
+                        <h4 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-cyan-500"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg>
+                            文章分類
+                        </h4>
+                        <ul class="space-y-2">
+                            {CATEGORIES.map(cat => (
+                                <li>
+                                    <a href="#" class="flex justify-between items-center text-sm text-slate-600 hover:text-cyan-600 group py-1 transition-colors">
+                                        <span class="group-hover:translate-x-1 transition-transform">{cat.name}</span>
+                                        <span class="bg-slate-100 px-2 py-0.5 rounded-full text-xs text-slate-400 group-hover:bg-cyan-50 group-hover:text-cyan-600 transition-colors">{cat.count}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </aside>
+    
+                <main class="lg:col-span-8 order-2 lg:order-1">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-2xl font-bold text-slate-800">最新日誌</h2>
+                        <div class="flex gap-2 text-sm text-slate-500">
+                            <span class="cursor-pointer text-slate-800 font-medium border-b-2 border-slate-800 pb-0.5">全部</span>
+                            <span class="text-slate-300">/</span>
+                            <span class="cursor-pointer hover:text-cyan-600 transition-colors">精選</span>
+                        </div>
+                    </div>
+    
+                    <!-- 部落格文章位置佔位 -->
+                    <div class="space-y-8">
+                        
+                        <!-- Placeholder Card 1 -->
+                        <div class="bg-white/60 backdrop-blur-sm rounded-3xl p-12 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center text-center min-h-[400px]">
+                            <div class="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4 text-slate-400">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-slate-600 mb-2">尚無文章內容</h3>
+                            <p class="text-slate-500 max-w-sm">
+                                這裡將會顯示最新的部落格文章列表。<br/>目前此區塊為暫位顯示。
+                            </p>
+                        </div>
+
+                         <!-- Placeholder Card 2 (Ghost Loading Style) -->
+                         <div class="bg-white rounded-3xl p-6 md:p-8 shadow-sm opacity-50">
+                            <div class="aspect-[16/9] bg-slate-200 rounded-2xl mb-6 animate-pulse"></div>
+                            <div class="flex gap-4 mb-4">
+                                <div class="h-4 bg-slate-200 rounded w-24 animate-pulse"></div>
+                                <div class="h-4 bg-slate-200 rounded w-16 animate-pulse"></div>
+                            </div>
+                            <div class="h-8 bg-slate-200 rounded w-3/4 mb-4 animate-pulse"></div>
+                            <div class="space-y-2 mb-6">
+                                <div class="h-4 bg-slate-200 rounded w-full animate-pulse"></div>
+                                <div class="h-4 bg-slate-200 rounded w-full animate-pulse"></div>
+                                <div class="h-4 bg-slate-200 rounded w-2/3 animate-pulse"></div>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="mt-16 flex justify-center">
+                        <button class="px-8 py-3 border border-slate-200 text-slate-400 rounded-full cursor-not-allowed text-sm font-medium tracking-wide" disabled>
+                            載入更多日誌 (暫無)
+                        </button>
+                    </div>
+                </main>
+            </div>
+        </div>
 		<Footer />
 	</body>
 </html>
