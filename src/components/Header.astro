@@ -8,9 +8,9 @@ const links = [
 ];
 ---
 
-<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5">
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-3">
   <div class="container mx-auto px-6 max-w-6xl flex justify-between items-center">
-    <a href="/" id="logo-link" class="text-xl font-bold tracking-wider uppercase flex items-center gap-2 text-white">
+    <a href="/" id="logo-link" class="text-xl font-bold tracking-wider uppercase flex items-center gap-2 text-slate-800">
       <span id="logo-icon">🐳</span>
       海洋部落格 | 座頭鯨
     </a>
@@ -20,7 +20,7 @@ const links = [
         links.map((item) => (
           <a 
             href={item.path} 
-            class="nav-link text-sm font-medium hover:text-cyan-500 transition-colors text-white/90"
+            class="nav-link text-sm font-medium hover:text-cyan-500 transition-colors text-slate-600"
           >
             {item.name}
           </a>
@@ -29,16 +29,16 @@ const links = [
     </div>
 
     <div class="flex items-center gap-4">
-       <button id="search-btn" class="hidden md:block p-2 transition-colors text-white hover:text-cyan-300">
+       <button id="search-btn" class="hidden md:block p-2 transition-colors text-slate-600 hover:bg-slate-100 rounded-full">
          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
        </button>
-       <button id="mobile-menu-btn" class="md:hidden text-white">
+       <button id="mobile-menu-btn" class="md:hidden text-slate-800">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
     </div>
   </div>
 
-  <!-- 手機版選單 -->
+  <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 p-4 shadow-lg">
     <div class="flex flex-col space-y-4">
       {
@@ -56,64 +56,8 @@ const links = [
 </header>
 
 <script>
-  const header = document.getElementById('main-header');
-  const logoLink = document.getElementById('logo-link');
-  const logoIcon = document.getElementById('logo-icon');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const searchBtn = document.getElementById('search-btn');
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
-
-  function updateHeader() {
-    const isScrolled = window.scrollY > 20;
-    const isHome = window.location.pathname === '/';
-
-    if (isScrolled || !isHome) {
-      header?.classList.remove('bg-transparent', 'py-5');
-      header?.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
-      
-      logoLink?.classList.remove('text-white');
-      logoLink?.classList.add('text-slate-800');
-
-      logoIcon?.classList.remove('border-white');
-      logoIcon?.classList.add('border-slate-800');
-
-      navLinks.forEach(link => {
-        link.classList.remove('text-white/90');
-        link.classList.add('text-slate-600');
-      });
-
-      searchBtn?.classList.remove('text-white', 'hover:text-cyan-300');
-      searchBtn?.classList.add('text-slate-600', 'hover:bg-slate-100', 'rounded-full');
-
-      mobileMenuBtn?.classList.remove('text-white');
-      mobileMenuBtn?.classList.add('text-slate-800');
-    } else {
-      header?.classList.add('bg-transparent', 'py-5');
-      header?.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-sm', 'py-3');
-
-      logoLink?.classList.add('text-white');
-      logoLink?.classList.remove('text-slate-800');
-
-      logoIcon?.classList.add('border-white');
-      logoIcon?.classList.remove('border-slate-800');
-
-      navLinks.forEach(link => {
-        link.classList.add('text-white/90');
-        link.classList.remove('text-slate-600');
-      });
-
-      searchBtn?.classList.add('text-white', 'hover:text-cyan-300');
-      searchBtn?.classList.remove('text-slate-600', 'hover:bg-slate-100', 'rounded-full');
-
-      mobileMenuBtn?.classList.add('text-white');
-      mobileMenuBtn?.classList.remove('text-slate-800');
-    }
-  }
-
-  window.addEventListener('scroll', updateHeader);
-  // Initial check
-  updateHeader();
 
   // Mobile Menu Toggle
   mobileMenuBtn?.addEventListener('click', () => {
