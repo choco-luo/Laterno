@@ -13,7 +13,7 @@
 
 <img width="1920" height="1200" alt="laterno_concept_art" src="https://github.com/user-attachments/assets/80d1ea42-130b-4b8a-8e81-36bfc7baa902" />
 
-## 🪸功能
+## 🪸功能 <尚未實作>
 - [ ] 文章發表
 - [ ] 自定義文章Tag
 - [ ] 自定追蹤喜愛的海洋生物
