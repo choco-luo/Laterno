@@ -6,6 +6,12 @@ const links = [
   { name: "Abyss島嶼(施工中)", path: "/abyss" },
   { name: "聯絡", path: "/contact" }
 ];
+
+const marqueeItems = [
+  "Welcome to Choco卷可餅的海洋日誌",
+  "每週更新：生活筆記、攝影作品、開發實驗",
+  "Abyss 島嶼企劃施工中，敬請期待"
+];
 ---
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm py-3">
@@ -38,6 +44,14 @@ const links = [
     </div>
   </div>
 
+  <div class="marquee-wrap border-t border-slate-200/80 bg-gradient-to-r from-cyan-50 via-white to-cyan-50">
+    <div class="marquee-track" aria-label="網站公告跑馬燈">
+      <span class="marquee-content">
+        {marqueeItems.join("  ✦  ")}  ✦  {marqueeItems.join("  ✦  ")}
+      </span>
+    </div>
+  </div>
+
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 p-4 shadow-lg">
     <div class="flex flex-col space-y-4">
@@ -63,4 +77,79 @@ const links = [
   mobileMenuBtn?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
   });
+
+  const particleColors = ['#22d3ee', '#0ea5e9', '#38bdf8', '#67e8f9', '#f8fafc'];
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  const spawnSquareBurst = (event) => {
+    if (prefersReducedMotion.matches) return;
+
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+    const particleCount = 12;
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < particleCount; i += 1) {
+      const square = document.createElement('span');
+      const angle = (Math.PI * 2 * i) / particleCount + Math.random() * 0.4;
+      const distance = 24 + Math.random() * 50;
+      const size = 6 + Math.random() * 8;
+      const rotation = Math.floor(Math.random() * 220) - 110;
+
+      square.className = 'click-burst-square';
+      square.style.left = `${event.clientX}px`;
+      square.style.top = `${event.clientY}px`;
+      square.style.width = `${size}px`;
+      square.style.height = `${size}px`;
+      square.style.backgroundColor = particleColors[i % particleColors.length];
+      square.style.setProperty('--dx', `${Math.cos(angle) * distance}px`);
+      square.style.setProperty('--dy', `${Math.sin(angle) * distance}px`);
+      square.style.setProperty('--dr', `${rotation}deg`);
+
+      square.addEventListener('animationend', () => square.remove(), { once: true });
+      fragment.appendChild(square);
+    }
+
+    document.body.appendChild(fragment);
+  };
+
+  window.addEventListener('pointerdown', spawnSquareBurst);
 </script>
+
+<style>
+  .marquee-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    min-height: 2.25rem;
+  }
+
+  .marquee-content {
+    display: inline-block;
+    padding-left: 100%;
+    color: rgb(15 23 42);
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+    animation: marquee-scroll 20s linear infinite;
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-content {
+      animation: none;
+      padding-left: 0.75rem;
+    }
+  }
+</style>

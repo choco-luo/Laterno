@@ -159,3 +159,31 @@ main {
   margin: 0 auto;
   padding: 6rem 1.5rem 3rem 1.5rem; /* pt-24 px-6 pb-12 */
 }
+
+.click-burst-square {
+  position: fixed;
+  z-index: 9999;
+  border-radius: 2px;
+  pointer-events: none;
+  opacity: 0.92;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  animation: click-square-burst 620ms cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
+}
+
+@keyframes click-square-burst {
+  0% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--dx), var(--dy)) rotate(var(--dr)) scale(0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .click-burst-square {
+    animation: none;
+    opacity: 0;
+  }
+}
